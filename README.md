@@ -5,4 +5,4 @@ This is a pretty minimal neovim config, it only has the stuff that I actually us
 
 ## screenshot:
 
-![screenshot] (https://imgur.com/a/XNW686Z)
+![screenshot](https://imgur.com/a/XNW686Z)
