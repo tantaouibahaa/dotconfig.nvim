@@ -3,7 +3,6 @@ local opt = vim.opt
 opt.updatetime = 250
 opt.timeoutlen = 300
 opt.redrawtime = 1500
-opt.lazyredraw = true
 
 opt.termguicolors = true
 opt.pumheight = 10
@@ -31,10 +30,13 @@ opt.expandtab = true
 opt.shiftwidth = 2
 opt.tabstop = 2
 opt.smartindent = true
-opt.wrap = false
+opt.wrap = true
+opt.breakindent = true
+opt.breakindentopt = "shift:2"
+opt.showbreak = "  "
 opt.linebreak = true
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 4
+opt.sidescrolloff = 4
 opt.splitbelow = true
 opt.splitright = true
 
