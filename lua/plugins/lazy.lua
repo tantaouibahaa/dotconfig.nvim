@@ -174,7 +174,10 @@ require("lazy").setup {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
           ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.get_selected_entry() then
+            local suggestion = require("supermaven-nvim.completion_preview")
+            if suggestion.has_suggestion() then
+              suggestion.on_accept_suggestion()
+            elseif cmp.visible() and cmp.get_selected_entry() then
               cmp.confirm({ select = true })
             else
               fallback()

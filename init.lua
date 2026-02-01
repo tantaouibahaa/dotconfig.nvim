@@ -1,6 +1,7 @@
 require("core.options")
 require("core.keymaps")
 require("core.ui")
+require("core.manual")
 
 require("plugins.lazy")
 vim.api.nvim_create_autocmd("User", {
