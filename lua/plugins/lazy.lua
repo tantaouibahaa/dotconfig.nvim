@@ -10,70 +10,70 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
   {
-    "folke/tokyonight.nvim",
+    "sainnhe/gruvbox-material",
     priority = 1000,
     config = function()
-      require("tokyonight").setup({
-        style = "night",
-        transparent = false,
-        styles = { sidebars = "dark", floats = "dark" },
-        on_colors = function(c)
-          c.bg = "#0d1117"
-          c.bg_dark = "#010409"
-          c.bg_highlight = "#161b22"
-          c.blue = "#79c0ff"
-          c.cyan = "#56d4dd"
-          c.green = "#7ee787"
-          c.magenta = "#d2a8ff"
-          c.purple = "#bc8cff"
-          c.red = "#ff7b72"
-          c.yellow = "#ffd866"
-          c.orange = "#ffa657"
-          c.pink = "#ff9bce"
-          c.teal = "#39d353"
-          c.comment = "#8b949e"
-        end,
-        on_highlights = function(hl, c)
-          hl.CursorLine = { bg = "#1c2128" }
-          hl.CursorLineNr = { fg = "#ff9bce", bold = true }
-          hl.LineNr = { fg = "#6e7681" }
-          hl.LineNrAbove = { fg = "#bc8cff" }
-          hl.LineNrBelow = { fg = "#bc8cff" }
-          hl.Function = { fg = "#d2a8ff", italic = true }
-          hl.Keyword = { fg = "#ff7b72", bold = true }
-          hl.String = { fg = "#a5d6ff" }
-          hl.Type = { fg = "#79c0ff" }
-          hl.Operator = { fg = "#ff9bce" }
-          hl.Statement = { fg = "#ff7b72" }
-          hl.Constant = { fg = "#ffa657" }
-          hl.Number = { fg = "#ffd866" }
-          hl.Boolean = { fg = "#ff9bce", bold = true }
-          hl.Comment = { fg = "#8b949e", italic = true }
-          hl.TelescopeBorder = { fg = "#bc8cff" }
-          hl.TelescopePromptBorder = { fg = "#ff9bce" }
-          hl.TelescopePromptTitle = { fg = "#0d1117", bg = "#ff9bce", bold = true }
-          hl.TelescopePreviewTitle = { fg = "#0d1117", bg = "#bc8cff", bold = true }
-          hl.TelescopeResultsTitle = { fg = "#0d1117", bg = "#79c0ff", bold = true }
-          hl.NvimTreeFolderIcon = { fg = "#bc8cff" }
-          hl.NvimTreeGitNew = { fg = "#7ee787" }
-          hl.NvimTreeGitDirty = { fg = "#ffd866" }
-          hl.NvimTreeGitDeleted = { fg = "#ff7b72" }
-          hl.NvimTreeRootFolder = { fg = "#ff9bce", bold = true }
-          hl.IndentBlanklineChar = { fg = "#21262d" }
-          hl.IndentBlanklineContextChar = { fg = "#bc8cff" }
-          hl.IblIndent = { fg = "#21262d" }
-          hl.IblScope = { fg = "#bc8cff" }
-          hl.NoiceCmdlinePopupBorder = { fg = "#bc8cff" }
-          hl.NoiceCmdlineIcon = { fg = "#ff9bce" }
-          hl.NotifyINFOBorder = { fg = "#79c0ff" }
-          hl.NotifyWARNBorder = { fg = "#ffd866" }
-          hl.NotifyERRORBorder = { fg = "#ff7b72" }
-          hl.FlashLabel = { fg = "#0d1117", bg = "#ff9bce", bold = true }
-          hl.FloatBorder = { fg = "#bc8cff" }
-          hl.NormalFloat = { bg = "#161b22" }
-        end,
-      })
-      vim.cmd.colorscheme "tokyonight"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_foreground = "mix"
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_enable_bold = 1
+      vim.g.gruvbox_material_enable_italic = 1
+      vim.g.gruvbox_material_diagnostic_text_highlight = 1
+      vim.g.gruvbox_material_diagnostic_line_highlight = 1
+      vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+      vim.g.gruvbox_material_current_word = "underline"
+      vim.g.gruvbox_material_float_style = "dim"
+
+      vim.cmd.colorscheme "gruvbox-material"
+
+      -- Custom highlights for extra coziness
+      vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fabd2f", bold = true })
+      vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#7c6f64" })
+      vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7c6f64" })
+      vim.api.nvim_set_hl(0, "Function", { fg = "#b8bb26", italic = true })
+      vim.api.nvim_set_hl(0, "Comment", { fg = "#928374", italic = true })
+
+      -- Telescope
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = "#1d2021", bg = "#fabd2f", bold = true })
+      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#1d2021", bg = "#b8bb26", bold = true })
+      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#1d2021", bg = "#83a598", bold = true })
+
+      -- NvimTree
+      vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#b8bb26" })
+      vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#fb4934" })
+      vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "#d3869b", bold = true })
+
+      -- Indent guides
+      vim.api.nvim_set_hl(0, "IblIndent", { fg = "#3c3836" })
+      vim.api.nvim_set_hl(0, "IblScope", { fg = "#83a598" })
+
+      -- Noice & Notify
+      vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "NotifyINFOBorder", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "NotifyWARNBorder", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "NotifyERRORBorder", { fg = "#fb4934" })
+
+      -- Flash
+      vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#1d2021", bg = "#fabd2f", bold = true })
+
+      -- Floats
+      vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282828" })
+
+      -- Diagnostics - cozy muted colors
+      vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#fb4934" })
+      vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#8ec07c" })
+      vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#fb4934" })
+      vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#83a598" })
+      vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#8ec07c" })
     end
   },
 
@@ -246,7 +246,7 @@ require("lazy").setup {
     event = "VeryLazy",
     config = function()
       require("lualine").setup({
-        options = { theme = "tokyonight", component_separators = { left = "", right = "" }, section_separators = { left = "", right = "" }, globalstatus = true },
+        options = { theme = "gruvbox-material", component_separators = { left = "", right = "" }, section_separators = { left = "", right = "" }, globalstatus = true },
         sections = {
           lualine_a = { { "mode", fmt = function(s) return s:sub(1,3) end } },
           lualine_b = { "branch" },
@@ -394,7 +394,7 @@ require("lazy").setup {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     config = function()
-      require("notify").setup({ background_colour = "#0d1117", fps = 60, render = "compact", stages = "fade_in_slide_out", timeout = 2500, max_width = 50 })
+      require("notify").setup({ background_colour = "#1d2021", fps = 60, render = "compact", stages = "fade_in_slide_out", timeout = 2500, max_width = 50 })
       require("noice").setup({
         lsp = { override = { ["vim.lsp.util.convert_input_to_markdown_lines"] = true, ["vim.lsp.util.stylize_markdown"] = true, ["cmp.entry.get_documentation"] = true }, progress = { enabled = true, view = "mini" } },
         presets = { bottom_search = false, command_palette = true, long_message_to_split = true, lsp_doc_border = true },
@@ -445,10 +445,10 @@ require("lazy").setup {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     config = function()
-      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#6e7681" })
-      vim.api.nvim_set_hl(0, "DashboardCenter", { fg = "#bc8cff" })
-      vim.api.nvim_set_hl(0, "DashboardShortCut", { fg = "#79c0ff" })
-      vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#8b949e", italic = true })
+      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#928374" })
+      vim.api.nvim_set_hl(0, "DashboardCenter", { fg = "#d3869b" })
+      vim.api.nvim_set_hl(0, "DashboardShortCut", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#928374", italic = true })
       require("dashboard").setup({
         theme = "doom",
         config = {
@@ -492,14 +492,194 @@ require("lazy").setup {
             local stats = require("lazy").stats()
             return {
               "",
-              "⚡ " .. stats.count .. " plugins · " .. string.format("%.0f", stats.startuptime) .. "ms",
+              "  " .. stats.count .. " plugins  " .. string.format("%.0f", stats.startuptime) .. "ms",
               "",
               "The owl of Minerva spreads its wings only with the falling of the dusk.",
-              "— Hegel",
+              "  Hegel",
             }
           end,
         },
       })
+    end,
+  },
+
+  -- ══════════════════════════════════════════════════════════════
+  -- AESTHETIC ENHANCEMENTS
+  -- ══════════════════════════════════════════════════════════════
+
+  -- Zen Mode for distraction-free coding
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen mode" } },
+    opts = {
+      window = {
+        backdrop = 0.95,
+        width = 100,
+        height = 1,
+        options = {
+          signcolumn = "no",
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+          cursorcolumn = false,
+          foldcolumn = "0",
+          list = false,
+        },
+      },
+      plugins = {
+        twilight = { enabled = true },
+        gitsigns = { enabled = false },
+        tmux = { enabled = true },
+        kitty = { enabled = true, font = "+2" },
+      },
+    },
+  },
+
+  -- Twilight dims inactive code sections
+  {
+    "folke/twilight.nvim",
+    cmd = "Twilight",
+    opts = {
+      dimming = { alpha = 0.4, color = { "Normal", "#928374" } },
+      context = 15,
+      treesitter = true,
+      expand = { "function", "method", "table", "if_statement" },
+    },
+  },
+
+  -- Colorful window separators
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    event = "WinNew",
+    config = function()
+      require("colorful-winsep").setup({
+        hi = {
+          fg = "#fabd2f",
+        },
+        smooth = true,
+        exponential_smoothing = true,
+        interval = 30,
+        no_exec_files = { "packer", "TelescopePrompt", "mason", "NvimTree", "lazy" },
+        symbols = { "─", "│", "╭", "╮", "╰", "╯" },
+      })
+    end,
+  },
+
+  -- Treesitter context (sticky headers)
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "BufReadPost",
+    config = function()
+      require("treesitter-context").setup({
+        enable = true,
+        max_lines = 3,
+        min_window_height = 0,
+        line_numbers = true,
+        multiline_threshold = 20,
+        trim_scope = "outer",
+        mode = "cursor",
+        separator = "─",
+        zindex = 20,
+      })
+      vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#282828" })
+      vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { fg = "#fabd2f", bg = "#282828" })
+      vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { fg = "#504945" })
+    end,
+  },
+
+  -- Smooth cursor animation
+  {
+    "gen740/SmoothCursor.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("smoothcursor").setup({
+        type = "default",
+        cursor = "",
+        texthl = "SmoothCursor",
+        linehl = nil,
+        fancy = {
+          enable = true,
+          head = { cursor = "", texthl = "SmoothCursor", linehl = nil },
+          body = {
+            { cursor = "", texthl = "SmoothCursorYellow" },
+            { cursor = "", texthl = "SmoothCursorYellow" },
+            { cursor = "", texthl = "SmoothCursorOrange" },
+            { cursor = ".", texthl = "SmoothCursorOrange" },
+          },
+          tail = { cursor = nil, texthl = "SmoothCursor" },
+        },
+        speed = 25,
+        intervals = 35,
+        priority = 10,
+        timeout = 3000,
+        threshold = 3,
+        disable_float_win = true,
+        enabled_filetypes = nil,
+        disabled_filetypes = { "TelescopePrompt", "NvimTree", "dashboard" },
+      })
+      vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "SmoothCursorYellow", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "SmoothCursorOrange", { fg = "#fe8019" })
+    end,
+  },
+
+  -- Scrollbar with diagnostics and git integration
+  {
+    "petertriho/nvim-scrollbar",
+    event = "BufReadPost",
+    config = function()
+      require("scrollbar").setup({
+        show = true,
+        show_in_active_only = false,
+        set_highlights = true,
+        folds = 1000,
+        max_lines = false,
+        hide_if_all_visible = false,
+        throttle_ms = 100,
+        handle = {
+          text = " ",
+          blend = 30,
+          color = "#504945",
+          color_nr = nil,
+          highlight = "ScrollbarHandle",
+          hide_if_all_visible = true,
+        },
+        marks = {
+          Cursor = { text = "", priority = 0, gui = nil, color = nil, cterm = nil, color_nr = nil, highlight = "Normal" },
+          Search = { text = { "-", "=" }, priority = 1, color = "#fe8019", highlight = "ScrollbarSearch" },
+          Error = { text = { "-", "=" }, priority = 2, color = "#fb4934", highlight = "ScrollbarError" },
+          Warn = { text = { "-", "=" }, priority = 3, color = "#fabd2f", highlight = "ScrollbarWarn" },
+          Info = { text = { "-", "=" }, priority = 4, color = "#83a598", highlight = "ScrollbarInfo" },
+          Hint = { text = { "-", "=" }, priority = 5, color = "#8ec07c", highlight = "ScrollbarHint" },
+          Misc = { text = { "-", "=" }, priority = 6, color = "#d3869b", highlight = "ScrollbarMisc" },
+          GitAdd = { text = "│", priority = 7, color = "#b8bb26", cterm = nil, highlight = "ScrollbarGitAdd" },
+          GitChange = { text = "│", priority = 7, color = "#fabd2f", cterm = nil, highlight = "ScrollbarGitChange" },
+          GitDelete = { text = "▁", priority = 7, color = "#fb4934", cterm = nil, highlight = "ScrollbarGitDelete" },
+        },
+        excluded_buftypes = { "terminal" },
+        excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "NvimTree", "dashboard", "alpha", "lazy" },
+        handlers = { cursor = true, diagnostic = true, gitsigns = true, handle = true, search = false },
+      })
+    end,
+  },
+
+  -- Word illumination (highlight other instances)
+  {
+    "RRethy/vim-illuminate",
+    event = "BufReadPost",
+    config = function()
+      require("illuminate").configure({
+        providers = { "lsp", "treesitter", "regex" },
+        delay = 200,
+        under_cursor = true,
+        large_file_cutoff = 2000,
+        large_file_overrides = { providers = { "lsp" } },
+        filetypes_denylist = { "dirbuf", "dirvish", "fugitive", "NvimTree", "TelescopePrompt", "dashboard" },
+      })
+      vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true })
+      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { underline = true })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, bold = true })
     end,
   },
 }

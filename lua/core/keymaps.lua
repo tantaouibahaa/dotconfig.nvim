@@ -65,3 +65,6 @@ keymap("n", "<leader>sv", ":vsplit<CR>", opts)
 keymap("n", "<leader>sh", ":split<CR>", opts)
 keymap("n", "<leader>se", "<C-w>=", opts)
 keymap("n", "<leader>sx", ":close<CR>", opts)
+
+-- Zen mode (distraction-free coding)
+keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
